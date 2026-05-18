@@ -1,1 +1,1 @@
-# Gala_projekts-
+# Gala_projekts/
