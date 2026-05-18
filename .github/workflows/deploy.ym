@@ -14,6 +14,10 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/Gala_projekts .
+     - name: Scan Docker image
+        uses: aquasecurity/trivy-action@master
+        with:
+            image-ref: 'username/gala_projekts:latest'
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - name: Push to Docker Hub
